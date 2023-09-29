@@ -84,23 +84,22 @@ function App() {
               placeholder='Type a username'
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button onClick={handleSearch}>Search</button>
+            <button className="search-btn" onClick={handleSearch}>Search</button>
           </div>
           {login && (<div className='user-info'>
-            <div>
-              <img src={`https://avatars.githubusercontent.com/${login}`} alt="user image" />
+            <div className='user-logo'>
+              <img className='user-img' src={`https://avatars.githubusercontent.com/${login}`} alt="user image" />
               <h1>{name}</h1>
-              <h2>{login}</h2>
             </div>
             <div className='user-content'>
-              <h1>Hi, im {name} &#128075;</h1>
+              <h1 className='Title'>Hi, im {name} &#128075;</h1>
               <hr />
               <p>{bio}</p>
               <h2>Languages that i use:</h2>
               <ul>
                 {topLanguages.map((language: any, index: number) => (
                   <li key={`language.name_${index}`}>
-                    {language.name}
+                     <img src={`https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language.name.toLowerCase()}/${language.name.toLowerCase()}.png`} alt={`${language.name}`}  height="50"/>
                   </li>
                 ))}
               </ul>
