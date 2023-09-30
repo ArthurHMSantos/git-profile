@@ -92,21 +92,21 @@ function App() {
               <h1>{name}</h1>
             </div>
             <div className='user-content'>
-              <h1 className='Title'>Hi, im {name} &#128075;</h1>
+              <h1>Hi, im {name} &#128075;</h1>
               <hr />
               <p>{bio}</p>
-              <h2>Languages that i use:</h2>
+              <h2>My languages:</h2>
               <ul>
                 {topLanguages.map((language: any, index: number) => (
                   <li key={`language.name_${index}`}>
-                     <img src={`https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language.name.toLowerCase()}/${language.name.toLowerCase()}.png`} alt={`${language.name}`}  height="50"/>
+                     <img src={`https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language.name.toLowerCase()}/${language.name.toLowerCase()}.png`} alt={`${language.name}`}  height="30"/>
                   </li>
                 ))}
               </ul>
               <hr />
               <div className='cards'>
-                <img height="180em" src={`https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&theme=tokyonight&locale=en`} alt="github status card" />
-                <img height="180em" src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${login}&layout=compact&langs_count=7&theme=tokyonight`} />
+                <img height="130em" src={`https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&theme=tokyonight&locale=en`} alt="github status card" />
+                <img height="130em" src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${login}&layout=compact&langs_count=7&theme=tokyonight`} />
               </div>
             </div>
           </div>)}
