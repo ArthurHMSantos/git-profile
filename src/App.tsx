@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css'
 import axios from 'axios'
 
@@ -18,6 +18,19 @@ function App() {
   const [bio, setBio] = useState("");
   const [topLanguages, setTopLanguages] = useState([]); // State to store top languages
 
+  const myRef = useRef<HTMLDivElement>(null);
+
+  function copyToClipboard() {
+    const innerHTMLString: string = myRef.current?.innerHTML as string;
+    navigator.clipboard.writeText(innerHTMLString)
+      .then(() => {
+        alert('Text copied to clipboard');
+      })
+      .catch((err) => {
+        console.error('Error copying text: ', err);
+      });
+  }
+  
   const fetchTopLanguages = (username: string) => {
     setTopLanguages([]); // Reset top languages state when fetching new user
     axios
@@ -90,19 +103,20 @@ function App() {
             <div className='user-logo'>
               <img className='user-img' src={`https://avatars.githubusercontent.com/${login}`} alt="user image" />
               <h1>{name}</h1>
+              <button className="copy-btn" onClick={() => copyToClipboard()} >Copy Readme</button>
             </div>
-            <div className='user-content'>
+            <div  ref={myRef} className='user-content'>
               <h1>Hi, im {name} &#128075;</h1>
               <hr />
               <p>{bio}</p>
               <h2>My languages:</h2>
-              <ul>
+              <div>
                 {topLanguages.map((language: any, index: number) => (
-                  <li key={`language.name_${index}`}>
+                  <span key={`language.name_${index}`}>
                      <img src={`https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language.name.toLowerCase()}/${language.name.toLowerCase()}.png`} alt={`${language.name}`}  height="30"/>
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
               <hr />
               <div className='cards'>
                 <img height="130em" src={`https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&theme=tokyonight&locale=en`} alt="github status card" />
@@ -110,7 +124,6 @@ function App() {
               </div>
             </div>
           </div>)}
-          
         </main>
       </div>
     </div>

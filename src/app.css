@@ -50,15 +50,21 @@
     font-family: 'Roboto', sans-serif;
   }
 
-  .search-btn{
+  .search-btn, .copy-btn {
     width: 500px;
     height: 2rem;
     border-radius: 0.5rem;
     border: 0;
     background-color: #238636;
-    font-size: 20px;    
+    font-size: 20px;
     color: #E2E2E2;
     cursor: pointer;
+  }
+  
+  .copy-btn {
+    font-size: 16px; /* or any other font size you prefer */
+    margin-left: 1rem;
+    width: 200px;
   }
 
   .user-info {
@@ -118,10 +124,6 @@
   p{
     font-size: 20px;
     padding-bottom: 10px;
-  }
-
-  h2{
-    font-size: 30px;
   }
 
   .cards{
