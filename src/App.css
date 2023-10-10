@@ -1,145 +1,206 @@
 * {
-    color: #E2E2E2;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto mono', sans-serif;
-  }
-  
-  body{
-    background-color: #2d2f3a;
-  }
-  .container-app {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #2d2f3a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .container {
-    width: 80%;
-    min-height: 0;
+  color: #E2E2E2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Roboto mono', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #2d2f3a;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #2d2f3a;
+
+  @media (max-width: 912px) {
     background-color: #101D2E;
-    padding: 3rem;
-    margin: 20px 0 20px 0;
-    border-radius: 5px;
+    height: 100%;
   }
+}
 
-  .form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #E2E2E2;
-  }
+.container-app {
+  width: 80%;
+  height: 50;
+  background-color: #101D2E;
+  padding: 3rem;
+  margin: auto 0;
+  border-radius: 5px;
+}
 
-  input{
-    width: 500px;
+  .search-input{
+    width: 50%;
     height: 2rem;
-    margin: 0.5rem 0;
     padding: 0.5rem;
     border-radius: 0.5rem;
     border: 0;
     background-color: #010409;
-    color: #E2E2E2;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+
+    @media (max-width: 912px) {
+      width: 95%;
+      height: 48px;
+    }
   }
 
-  .search-btn, .copy-btn {
-    width: 500px;
-    height: 2rem;
-    border-radius: 0.5rem;
-    border: 0;
-    background-color: #238636;
-    font-size: 20px;
-    color: #E2E2E2;
-    cursor: pointer;
-  }
-  
-  .copy-btn {
-    font-size: 16px; /* or any other font size you prefer */
-    margin-left: 1rem;
-    width: 200px;
-  }
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #E2E2E2;
+  gap: 10px;
 
-  .user-info {
+  @media (max-width: 912px) {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around; /* Distribui o espaço igualmente em torno dos itens */
-    padding: 20px 30px; /* Ajuste o espaçamento superior e inferior */
-    background-color: #0D1117;
-    margin-top: 2rem;
-    min-height: 100%; /* Use min-height para que a .user-info cresça de acordo com o conteúdo */
-    border: 3px solid #30363D;
-    border-radius: 15px;
+    gap: 10px; 
   }
-  
+}
 
-  .user-logo{
-    display: flex;
+.search-btn, .copy-btn {
+  width: 51%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: 0;
+  background-color: #238636;
+  font-size: 20px;
+  color: #E2E2E2;
+  cursor: pointer;
+
+  @media (max-width: 912px) {
+    height: 64px;
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+
+.copy-btn {
+  font-size: 16px; /* or any other font size you prefer */
+  margin-left: 1rem;
+  width: 200px;
+  
+  @media (max-width: 912px) {
+    font-size: 1.5rem;
+  }
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; /* Distribui o espaço igualmente em torno dos itens */
+  padding: 20px 30px; /* Ajuste o espaçamento superior e inferior */
+  background-color: #0D1117;
+  margin-top: 2rem;
+  border: 3px solid #30363D;
+  border-radius: 15px;
+
+  @media (max-width: 912px) {
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* or any other value you prefer */
-  }
-
-  .user-img{
-    width: 200px;
-    height: 3%;
-    border-radius: 50%;
-    border: 3px solid #30363D;
-  }
-  ul{
-    gap: 10px;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;  
-  }
-
-  .user-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinha os demais elementos no início */
-    text-align: center; /* Centraliza o texto do título horizontalmente */
-    border: 3px solid #30363D;
-    border-radius: 15px;
-    padding: 25px; /* Adicione espaço interno de 20px a todos os lados do elemento */
-    margin: 20px 0 20px 0;
-  }
-  
-  hr {
-    border: none; /* Remova a borda padrão */
-    border-top: 2px solid #30363D; /* Adicione uma borda superior para criar uma linha */
-    width: 100%; /* Defina a largura para ocupar a largura completa do contêiner pai */
-    height: 1px; /* Defina a altura da linha, por exemplo, 1 pixel */
-    margin: 10px 0; /* Adicione margens superior e inferior para ajustar o espaçamento da linha */
-  }
-
-  p{
-    font-size: 20px;
-    padding-bottom: 10px;
-  }
-
-  .cards{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
   }
+}
 
-  h2{
-    padding: 20px 0  10px 0;
-    font-size: 20px;
-  }
 
-  h1{
-    font-size: 30px;
+.user-logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* or any other value you prefer */
+}
+
+.user-img{
+  width: 200px;
+  height: 3%;
+  border-radius: 50%;
+  border: 3px solid #30363D;
+}
+ul{
+  gap: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;  
+}
+
+.user-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha os demais elementos no início */
+  text-align: center; /* Centraliza o texto do título horizontalmente */
+  border: 3px solid #30363D;
+  border-radius: 15px;
+  padding: 25px; /* Adicione espaço interno de 20px a todos os lados do elemento */
+  margin: 20px 0 20px 0;
+
+  @media (max-width: 912px) {
+    padding: 0;
+    width: 120%;
   }
+}
+
+hr {
+  border: none; /* Remova a borda padrão */
+  border-top: 2px solid #30363D; /* Adicione uma borda superior para criar uma linha */
+  width: 100%; /* Defina a largura para ocupar a largura completa do contêiner pai */
+  height: 1px; /* Defina a altura da linha, por exemplo, 1 pixel */
+  margin: 10px 0; /* Adicione margens superior e inferior para ajustar o espaçamento da linha */
+}
+
+p{
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.cards{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-stats{
+  height: 130px;
+
+  @media (max-width: 912px) {
+    height: 110px;
+  }
+}
+
+.card-lang{
+  height: 100px;
+
+  @media (max-width: 912px) {
+    height: auto;
+  }
+}
+
+h2{
+  padding: 20px 0  10px 0;
+  font-size: 20px;
+}
+
+h1{
+  font-size: 2rem;
+
+  @media (max-width: 912px) {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+
+
+ 

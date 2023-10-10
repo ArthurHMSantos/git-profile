@@ -68,17 +68,25 @@ function App() {
       });
   };
 
-  const handleSearch = () => {
-    axios
-      .get<GithubUser>(`https://api.github.com/users/${search}`)
-      .then(response => {
-        setLogin(response.data.login)
-        setName(response.data.name)
-        setBio(response.data.bio)
+const handleSearch = () => {
+  axios
+    .get<GithubUser>(`https://api.github.com/users/${search}`)
+    .then(response => {
+      setLogin(response.data.login)
+      setName(response.data.name)
+      setBio(response.data.bio)
 
-        fetchTopLanguages(response.data.login);
-      })
-  }
+      fetchTopLanguages(response.data.login);
+    })
+    .catch(error => {
+      if (error.response && error.response.status === 404) {
+        alert('User not found');
+        // Add code here to alert the user that the user was not found
+      } else {
+        console.error('Error fetching user data:', error);
+      }
+    });
+}
 
   useEffect(() => {
     // Fetch top languages when the component mounts (initial load)
@@ -88,12 +96,12 @@ function App() {
   }, [login]);
 
   return (
-    <div className='container-app'>
-      <div className='container'>
-        <main>
+    <div className='container'>
+      <div className='container-app'>
           <div className='form'>
             <h1>Github Readme Stats Maker</h1>
             <input type="text"
+              className="search-input"
               placeholder='Type a username'
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -119,12 +127,11 @@ function App() {
               </div>
               <hr />
               <div className='cards'>
-                <img height="130em" src={`https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&theme=tokyonight&locale=en`} alt="github status card" />
-                <img height="130em" src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${login}&layout=compact&langs_count=7&theme=tokyonight`} />
+                <img className='card-stats' src={`https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&theme=tokyonight&locale=en`} alt="github status card" />
+                <img className='card-lang' src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${login}&layout=compact&langs_count=7&theme=tokyonight`} />
               </div>
             </div>
           </div>)}
-        </main>
       </div>
     </div>
   )
