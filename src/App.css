@@ -9,6 +9,10 @@
 html, body {
   height: 100%;
   background-color: #2d2f3a;
+
+  @media (max-width: 912px) {
+    background-color: #101D2E;
+  }
 }
 
 .container {
@@ -108,6 +112,7 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    height: 100%;
   }
 }
 
@@ -144,8 +149,9 @@ ul{
   margin: 20px 0 20px 0;
 
   @media (max-width: 912px) {
+    height: auto;
     padding: 0;
-    width: 120%;
+    width: 110%;
   }
 }
 
@@ -172,7 +178,6 @@ p{
 }
 
 .card-stats{
-  height: 130px;
 
   @media (max-width: 912px) {
     height: 110px;
@@ -180,15 +185,14 @@ p{
 }
 
 .card-lang{
-  height: 100px;
 
   @media (max-width: 912px) {
-    height: auto;
+    height: 150px;
   }
 }
 
 h2{
-  padding: 20px 0  10px 0;
+  padding-bottom: 10px;
   font-size: 20px;
 }
 
@@ -200,6 +204,7 @@ h1{
     text-align: center;
   }
 }
+
 
 
 

@@ -116,19 +116,19 @@ const handleSearch = () => {
             <div  ref={myRef} className='user-content'>
               <h1>Hi, im {name} &#128075;</h1>
               <hr />
-              <p>{bio}</p>
+              {bio && <p>{bio}</p>}
               <h2>My languages:</h2>
-              <div>
+              <div >
                 {topLanguages.map((language: any, index: number) => (
-                  <span key={`language.name_${index}`}>
+                  <span  key={`language.name_${index}`}>
                      <img src={`https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language.name.toLowerCase()}/${language.name.toLowerCase()}.png`} alt={`${language.name}`}  height="30"/>
                   </span>
                 ))}
               </div>
               <hr />
               <div className='cards'>
-                <img className='card-stats' src={`https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&theme=tokyonight&locale=en`} alt="github status card" />
-                <img className='card-lang' src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${login}&layout=compact&langs_count=7&theme=tokyonight`} />
+                <img  className='card-stats' height="130em"src={`https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&theme=tokyonight&locale=en`} alt="github status card" />
+                <img className='card-lang'height="130em"  src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${login}&layout=compact&langs_count=7&theme=tokyonight`} />
               </div>
             </div>
           </div>)}
